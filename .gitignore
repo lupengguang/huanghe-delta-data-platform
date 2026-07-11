@@ -8,5 +8,8 @@ dist/
 .DS_Store
 Thumbs.db
 *.log
-public/videos/
-*.mp4
+**/videos/
+**/*.mp4
+**/*.mov
+**/*.avi
+**/*.mkv
