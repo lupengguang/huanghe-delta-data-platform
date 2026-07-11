@@ -36,28 +36,28 @@ export const mockProjectProgress = [
     id: 1,
     title: '湿地保护修复项目三期工程启动',
     content: '总投资5.2亿元的湿地保护修复项目三期工程正式启动，将进一步提升黄河三角洲湿地生态系统的稳定性和生物多样性。',
-    image_url: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=wetland%20restoration%20construction%2C%20ecological%20engineering&image_size=landscape_4_3',
+    image_url: '/images/黄河三角洲土壤保持.png',
     create_time: '2025-06-20 08:00:00'
   },
   {
     id: 2,
     title: '智慧监测系统升级完成',
     content: '黄河三角洲生态监测中心完成智慧监测系统升级，实现全域15.3万公顷栖息地的实时监测和数据分析。',
-    image_url: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=smart%20monitoring%20system%2C%20environmental%20monitoring&image_size=landscape_4_3',
+    image_url: '/images/黄河三角洲植被类型数据.png',
     create_time: '2025-05-30 10:30:00'
   },
   {
     id: 3,
     title: '生物多样性调查成果发布',
     content: '最新生物多样性调查成果发布，保护区野生动物增至1635种，鸟类达406种，较建区时增加219种。',
-    image_url: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=biodiversity%20research%2C%20wildlife%20survey&image_size=landscape_4_3',
+    image_url: '/images/黄河三角洲NDVI.png',
     create_time: '2025-05-10 14:00:00'
   },
   {
     id: 4,
     title: '生态补水效果评估报告出炉',
     content: '2024年度生态补水效果评估报告出炉，补水后湿地植被覆盖率提升至55.1%，生态系统健康状况明显改善。',
-    image_url: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ecological%20water%20supplement%20evaluation%2C%20wetland%20health&image_size=landscape_4_3',
+    image_url: '/images/黄河三角洲平均土壤湿度.png',
     create_time: '2025-04-25 09:15:00'
   }
 ];

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { mockProjectProgress } from '../data/mockData';
+import { withBase } from '../utils/pathUtils';
 
 function ProjectProgressList() {
   const [progressList] = useState(mockProjectProgress);
@@ -48,7 +49,7 @@ function ProjectProgressList() {
         <p className="text-gray-300 text-sm leading-relaxed">• {currentItem.title}</p>
         {currentItem.image_url && (
           <img 
-            src={currentItem.image_url} 
+            src={withBase(currentItem.image_url)} 
             alt={currentItem.title}
             className="w-full h-32 object-cover rounded mt-2"
           />
@@ -110,7 +111,7 @@ function ProjectProgressList() {
             </div>
             {selectedProgress.image_url && (
               <img 
-                src={selectedProgress.image_url} 
+                src={withBase(selectedProgress.image_url)} 
                 alt={selectedProgress.title}
                 className="w-full h-48 object-cover rounded mb-4"
               />
