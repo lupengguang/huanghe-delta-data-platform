@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function EcoOverview() {
   return (
@@ -12,7 +13,18 @@ function EcoOverview() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* 左侧内容 */}
           <div className="glass-card p-6">
-            <h3 className="text-xl font-semibold text-white mb-4">保护区简介</h3>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-semibold text-white">保护区简介</h3>
+              <Link 
+                to="/protected-area"
+                className="text-blue-400 hover:text-blue-300 text-sm flex items-center gap-1 transition-colors"
+              >
+                查看详情
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
             <p className="text-gray-400 mb-6">
               山东黄河三角洲国家级自然保护区于1992年经国务院批准建立，是以保护黄河口新生湿地生态系统和珍稀濒危鸟类为主体的湿地类型自然保护区。
             </p>
