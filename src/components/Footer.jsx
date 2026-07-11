@@ -10,7 +10,7 @@ function Footer() {
             <h3 className="text-lg font-semibold text-white mb-4">关于我们</h3>
             <ul className="space-y-2">
               <li><Link to="/protected-area" className="text-gray-400 hover:text-blue-400 transition-colors">保护区简介</Link></li>
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">组织结构</a></li>
+              <li><Link to="/organization" className="text-gray-400 hover:text-blue-400 transition-colors">组织结构</Link></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">联系我们</a></li>
             </ul>
           </div>
