@@ -878,6 +878,21 @@ function AboutUs() {
   );
 }
 
+function RedirectHandler() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  
+  useEffect(() => {
+    const pathParam = searchParams.get('p');
+    if (pathParam) {
+      const cleanPath = pathParam.replace(/^\/huanghe-delta-data-platform/, '');
+      navigate(cleanPath);
+    }
+  }, [searchParams, navigate]);
+  
+  return null;
+}
+
 function App() {
   return (
     <Router basename="/huanghe-delta-data-platform">
@@ -886,6 +901,7 @@ function App() {
         <div className="relative z-10 flex-1 flex flex-col">
           <Navbar />
           <main className="flex-1">
+            <RedirectHandler />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/protected-area" element={<ProtectedArea />} />
