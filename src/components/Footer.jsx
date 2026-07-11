@@ -18,7 +18,7 @@ function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">数据资源</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">监测数据</a></li>
+              <li><Link to="/monitoring-data" className="text-gray-400 hover:text-blue-400 transition-colors">监测数据</Link></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">遥感影像</a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">科研成果</a></li>
             </ul>

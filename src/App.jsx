@@ -14,6 +14,7 @@ import ImageCarousel from './components/ImageCarousel';
 import NotificationList from './components/NotificationList';
 import ProtectedArea from './components/ProtectedArea';
 import Organization from './components/Organization';
+import MonitoringData from './components/MonitoringData';
 import ProjectProgressList from './components/ProjectProgressList';
 import ResearchResultList from './components/ResearchResultList';
 import { mockWechatArticles, mockProjects, mockLiteratures, mockCatalogTree, getCatalogContent } from './data/mockData';
@@ -889,6 +890,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/protected-area" element={<ProtectedArea />} />
               <Route path="/organization" element={<Organization />} />
+              <Route path="/monitoring-data" element={<MonitoringData />} />
               <Route path="/database-catalog" element={<DatabaseCatalog />} />
               <Route path="/other-results" element={<OtherResults />} />
               <Route path="/other-results/gps-app" element={<GpsApp />} />
