@@ -877,7 +877,7 @@ function AboutUs() {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/huanghe-delta-data-platform">
       <div className="min-h-screen flex flex-col relative">
         <TechBackground />
         <div className="relative z-10 flex-1 flex flex-col">

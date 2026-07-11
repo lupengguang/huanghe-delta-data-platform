@@ -1,4 +1,5 @@
 import React from 'react';
+import { withBase } from '../utils/pathUtils';
 
 function DataOverview() {
   const coreData = [
@@ -61,7 +62,7 @@ function DataOverview() {
           
           <div className="glass-card rounded-lg overflow-hidden shadow-lg">
             <img 
-              src="/images/001.jpg" 
+              src={withBase('/images/001.jpg')} 
               alt="数据平台" 
               className="w-full h-auto"
             />
