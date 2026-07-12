@@ -381,6 +381,37 @@ function AdminDashboard() {
   const [activeNav, setActiveNav] = useState('documents');
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showSwitchModal, setShowSwitchModal] = useState(false);
+  const [switchTab, setSwitchTab] = useState('accounts');
+  const [selectedAccount, setSelectedAccount] = useState(null);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const accounts = [
+    { id: 1, name: 'M&G 王宗波', role: '管理员' },
+    { id: 2, name: '全栈 陆鹏光', role: '管理员' },
+    { id: 3, name: '全栈 陆鹏光', role: '管理员' },
+    { id: 4, name: '销售 赵文婷', role: '管理员' },
+  ];
+
+  const handleSwitchSubmit = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowSwitchModal(false);
+    }, 1500);
+  };
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    if (!username || !password) return;
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowSwitchModal(false);
+    }, 1500);
+  };
 
   const navItems = [
     { id: 'dashboard', label: '仪表盘', icon: '📊' },
@@ -477,7 +508,7 @@ function AdminDashboard() {
                 </div>
               </div>
               <button 
-                onClick={() => navigate('/switch-account')}
+                onClick={() => setShowSwitchModal(true)}
                 className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors">
                 点击切换
               </button>
@@ -643,6 +674,161 @@ function AdminDashboard() {
           </div>
         </main>
       </div>
+
+      {showSwitchModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setShowSwitchModal(false)}
+          />
+          <div className="relative w-full max-w-md">
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-2xl blur opacity-30"></div>
+            <div className="relative bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600"></div>
+              <div className="absolute top-3 left-3 flex gap-2">
+                <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer hover:opacity-80" onClick={() => setShowSwitchModal(false)}></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <div className="flex border-b border-white/10 mt-8">
+                <button
+                  onClick={() => setSwitchTab('accounts')}
+                  className={`flex-1 py-4 text-center font-medium transition-all duration-300 ${
+                    switchTab === 'accounts'
+                      ? 'text-blue-400 border-b-2 border-blue-500'
+                      : 'text-gray-500 hover:text-white'
+                  }`}
+                >
+                  管理员账号
+                </button>
+                <button
+                  onClick={() => setSwitchTab('login')}
+                  className={`flex-1 py-4 text-center font-medium transition-all duration-300 ${
+                    switchTab === 'login'
+                      ? 'text-blue-400 border-b-2 border-blue-500'
+                      : 'text-gray-500 hover:text-white'
+                  }`}
+                >
+                  后台登录
+                </button>
+              </div>
+              <div className="p-6">
+                {switchTab === 'accounts' ? (
+                  <div className="space-y-3">
+                    {accounts.map((account) => (
+                      <button
+                        key={account.id}
+                        onClick={() => setSelectedAccount(account.id)}
+                        className={`w-full p-3 rounded-lg border transition-all duration-300 text-left flex items-center gap-3 ${
+                          selectedAccount === account.id
+                            ? 'bg-blue-600/30 border-blue-500/50 shadow-lg shadow-blue-500/20'
+                            : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
+                        }`}
+                      >
+                        <div className={`w-9 h-9 rounded-full flex items-center justify-center ${selectedAccount === account.id ? 'bg-blue-500/30' : 'bg-white/10'}`}>
+                          <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${selectedAccount === account.id ? 'text-blue-400' : 'text-gray-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          </svg>
+                        </div>
+                        <div className="flex-1">
+                          <div className={`font-medium ${selectedAccount === account.id ? 'text-blue-300' : 'text-white'}`}>{account.name}</div>
+                          <div className="text-gray-500 text-xs">{account.role}</div>
+                        </div>
+                        {selectedAccount === account.id && (
+                          <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                    <button
+                      onClick={handleSwitchSubmit}
+                      disabled={isLoading || !selectedAccount}
+                      className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/50 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30"
+                    >
+                      {isLoading ? (
+                        <>
+                          <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          切换中...
+                        </>
+                      ) : (
+                        '切换账号'
+                      )}
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleLoginSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-gray-400 text-sm mb-2">请输入账号</label>
+                      <div className="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <input
+                          type="text"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                          placeholder="请输入账号"
+                          className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-gray-400 text-sm mb-2">请输入密码</label>
+                      <div className="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        <input
+                          type="password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          placeholder="请输入密码"
+                          className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <label className="flex items-center gap-2 text-gray-500 text-sm cursor-pointer">
+                        <input type="checkbox" className="w-4 h-4 rounded border-gray-600 bg-white/10 text-blue-600 focus:ring-blue-500 focus:ring-offset-0" />
+                        <span>记住密码</span>
+                      </label>
+                      <button type="button" className="text-blue-400 text-sm hover:text-blue-300 transition-colors">忘记密码</button>
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={isLoading || !username || !password}
+                      className="w-full py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/50 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30"
+                    >
+                      {isLoading ? (
+                        <>
+                          <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          登录中...
+                        </>
+                      ) : (
+                        '后台登录'
+                      )}
+                    </button>
+                    <div className="text-center">
+                      <span className="text-gray-500 text-sm">没有账号？</span>
+                      <button type="button" className="text-blue-400 text-sm hover:text-blue-300 transition-colors ml-1">立即注册</button>
+                    </div>
+                  </form>
+                )}
+              </div>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 via-cyan-400 to-purple-600"></div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
