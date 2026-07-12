@@ -326,7 +326,7 @@ function UserMenu({ isOpen, onToggle }) {
           </svg>
         </div>
         <div className="text-left">
-          <div className="text-white text-sm font-semibold">CEO: 陆鹏光</div>
+          <div className="text-white text-sm font-semibold">全栈开发: 陆鹏光</div>
           <div className="text-gray-500 text-xs">管理员</div>
         </div>
         <svg
@@ -476,7 +476,9 @@ function AdminDashboard() {
                   <div className="text-gray-500 text-xs">点击切换</div>
                 </div>
               </div>
-              <button className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors">
+              <button 
+                onClick={() => navigate('/switch-account')}
+                className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors">
                 点击切换
               </button>
             </div>
