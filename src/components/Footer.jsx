@@ -28,7 +28,7 @@ function Footer() {
             <h3 className="text-lg font-semibold text-white mb-4">快速链接</h3>
             <ul className="space-y-2">
               <li><Link to="/national-park" className="text-gray-400 hover:text-blue-400 transition-colors">国家公园建设</Link></li>
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">湿地保护修复</a></li>
+              <li><Link to="/wetland-restoration" className="text-gray-400 hover:text-blue-400 transition-colors">湿地保护修复</Link></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">生态环境监测</a></li>
             </ul>
           </div>
