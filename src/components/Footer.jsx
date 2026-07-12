@@ -20,7 +20,7 @@ function Footer() {
             <ul className="space-y-2">
               <li><Link to="/monitoring-data" className="text-gray-400 hover:text-blue-400 transition-colors">监测数据</Link></li>
               <li><Link to="/remote-sensing" className="text-gray-400 hover:text-blue-400 transition-colors">遥感影像</Link></li>
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">科研成果</a></li>
+              <li><Link to="/research-results" className="text-gray-400 hover:text-blue-400 transition-colors">科研成果</Link></li>
             </ul>
           </div>
           
