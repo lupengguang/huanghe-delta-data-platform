@@ -20,7 +20,7 @@ function LoginModal({ isOpen, onClose }) {
     setTimeout(() => {
       setIsLoggingIn(false);
       onClose();
-      navigate('/');
+      navigate('/admin');
     }, 1500);
   };
 
