@@ -36,7 +36,7 @@ function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">联系方式</h3>
             <p className="text-gray-400 mb-2">电话：0546-xxxxxxx</p>
-            <p className="text-gray-400 mb-2">地址：山东省东营市垦利区</p>
+            <p className="text-gray-400 mb-2">地址：<Link to="/kenli-district" className="text-blue-400 hover:text-blue-300 transition-colors">山东省东营市垦利区</Link></p>
             <p className="text-gray-400">邮箱：info@huanghe-delta.com</p>
           </div>
         </div>
