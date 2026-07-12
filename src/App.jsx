@@ -19,6 +19,7 @@ import RemoteSensing from './components/RemoteSensing';
 import ResearchResults from './components/ResearchResults';
 import NationalParkDetail from './components/NationalParkDetail';
 import WetlandRestoration from './components/WetlandRestoration';
+import EcoEnvironmentMonitoring from './components/EcoEnvironmentMonitoring';
 import ProjectProgressList from './components/ProjectProgressList';
 import ResearchResultList from './components/ResearchResultList';
 import { mockWechatArticles, mockProjects, mockLiteratures, mockCatalogTree, getCatalogContent } from './data/mockData';
@@ -915,6 +916,7 @@ function App() {
               <Route path="/research-results" element={<ResearchResults />} />
               <Route path="/national-park" element={<NationalParkDetail />} />
               <Route path="/wetland-restoration" element={<WetlandRestoration />} />
+              <Route path="/eco-monitoring" element={<EcoEnvironmentMonitoring />} />
               <Route path="/database-catalog" element={<DatabaseCatalog />} />
               <Route path="/other-results" element={<OtherResults />} />
               <Route path="/other-results/gps-app" element={<GpsApp />} />

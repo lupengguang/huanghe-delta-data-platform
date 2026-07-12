@@ -29,7 +29,7 @@ function Footer() {
             <ul className="space-y-2">
               <li><Link to="/national-park" className="text-gray-400 hover:text-blue-400 transition-colors">国家公园建设</Link></li>
               <li><Link to="/wetland-restoration" className="text-gray-400 hover:text-blue-400 transition-colors">湿地保护修复</Link></li>
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">生态环境监测</a></li>
+              <li><Link to="/eco-monitoring" className="text-gray-400 hover:text-blue-400 transition-colors">生态环境监测</Link></li>
             </ul>
           </div>
           
