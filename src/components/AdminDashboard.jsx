@@ -389,10 +389,9 @@ function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(false);
 
   const accounts = [
-    { id: 1, name: 'M&G 王宗波', role: '管理员' },
+    { id: 1, name: 'AIGC 王宇欣', role: '管理员' },
     { id: 2, name: '全栈 陆鹏光', role: '管理员' },
-    { id: 3, name: '全栈 陆鹏光', role: '管理员' },
-    { id: 4, name: '销售 赵文婷', role: '管理员' },
+    { id: 4, name: '销售 赵文琪', role: '管理员' },
   ];
 
   const handleSwitchSubmit = () => {
