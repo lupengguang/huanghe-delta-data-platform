@@ -399,6 +399,9 @@ function AdminDashboard() {
     setTimeout(() => {
       setIsLoading(false);
       setShowSwitchModal(false);
+      if (selectedAccount === 1) {
+        navigate('/cloud-storage');
+      }
     }, 1500);
   };
 

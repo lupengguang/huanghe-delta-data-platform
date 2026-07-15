@@ -23,6 +23,7 @@ import EcoEnvironmentMonitoring from './components/EcoEnvironmentMonitoring';
 import KenliDistrict from './components/KenliDistrict';
 import AdminDashboard from './components/AdminDashboard';
 import SwitchAccount from './components/SwitchAccount';
+import CloudStorage from './components/CloudStorage';
 import ProjectProgressList from './components/ProjectProgressList';
 import ResearchResultList from './components/ResearchResultList';
 import { mockWechatArticles, mockProjects, mockLiteratures, mockCatalogTree, getCatalogContent } from './data/mockData';
@@ -923,6 +924,7 @@ function App() {
               <Route path="/kenli-district" element={<KenliDistrict />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/switch-account" element={<SwitchAccount />} />
+              <Route path="/cloud-storage" element={<CloudStorage />} />
               <Route path="/database-catalog" element={<DatabaseCatalog />} />
               <Route path="/other-results" element={<OtherResults />} />
               <Route path="/other-results/gps-app" element={<GpsApp />} />
