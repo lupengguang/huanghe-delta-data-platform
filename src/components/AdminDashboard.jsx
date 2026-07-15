@@ -400,7 +400,7 @@ function AdminDashboard() {
       setIsLoading(false);
       setShowSwitchModal(false);
       if (selectedAccount === 1) {
-        navigate('/cloud-storage');
+        navigate('/aigc-admin');
       }
     }, 1500);
   };
